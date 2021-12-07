@@ -6,6 +6,13 @@ const engine = require("express-handlebars").engine
 app.engine("handlebars", engine())
 app.set("view engine", "handlebars")
 
+// necessaire pour acceder au req.body lors du submit d'un form
+app.use(express.urlencoded({ extended: true }))
+
+app.get("/hello", (req, res) => {
+  res.send("hello")
+})
+
 app.get("/", (req, res) => {
   // res.render va chercher le 'views/layouts/main'
   // => le 'views/layouts/main, il va remplacer le {{{body}}}
@@ -35,6 +42,10 @@ app.get("/profile", (req, res) => {
       "Vincent"
     ]
   })
+})
+
+app.post('/form/signup', (req, res) => {
+  console.log(req.body)
 })
 
 app.listen(port, () => {
