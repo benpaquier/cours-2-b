@@ -1,0 +1,15 @@
+<h1>profile</h1>
+{{!-- Affichage de la valeur de la variable `name` --}}
+{{name}}
+
+{{!-- Je récupère le boolean isBenoit de l'index.js --}}
+{{#if isBenoit}}
+  <p>C'est bien Benoit</p>
+{{else}}
+  <p>C'est pas Benoit</p>
+{{/if}}
+
+{{!-- {names.map(name => <p>{name}</p>)} --}}
+{{#each names}}
+  <p>{{this}}</p>
+{{/each}}
